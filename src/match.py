@@ -26,19 +26,28 @@ if plot_runtime:
             print('Elapsed time for', n,'users and', c, 'categories is ', t)
 
     print(stats_settings)
-    fig = plt.figure()
+
+    fig1 = plt.figure()
+    ax = plt.gca()
+    ax.set_xlabel('Settings [#users, #categories]')
+    ax.set_ylabel('Time [s]')
+    ax.set_title('Runtime analysis')
+    plt.xticks(np.arange(n1*n2), stats_settings, rotation=90)
+
+    plt.semilogy(range(len(stats)), stats)
+    fig1.savefig('runtime_semilog.png', bbox_inches='tight')
+    plt.show()
+
+    fig2 = plt.figure()
     ax = plt.gca()
     ax.set_xlabel('Settings [#users, #categories]')
     ax.set_ylabel('Time [s]')
     ax.set_title('Runtime analysis')
 
-    plt.semilogy(range(len(stats)), stats)
     plt.xticks(np.arange(n1*n2), stats_settings, rotation=90)
-    plt.show()
-    fig.savefig('runtime_semilog.png', bbox_inches='tight')
     plt.bar(range(len(stats)), stats)
+    fig2.savefig('runtime_bar.png', bbox_inches='tight')
     plt.show()
-    fig.savefig('runtime_bar.png', bbox_inches='tight')
 
 # small example
 n = 1000
