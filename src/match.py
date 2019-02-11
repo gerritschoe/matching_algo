@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from scipy import spatial
 from timeit import default_timer as timer
 
-plot_runtime = False
+plot_runtime = True
 
 if plot_runtime:
     n1 = 4
@@ -30,12 +30,15 @@ if plot_runtime:
     ax = plt.gca()
     ax.set_xlabel('Settings [#users, #categories]')
     ax.set_ylabel('Time [s]')
-    ax.set_title('Rutime analysis')
+    ax.set_title('Runtime analysis')
 
     plt.semilogy(range(len(stats)), stats)
     plt.xticks(np.arange(n1*n2), stats_settings, rotation=90)
     plt.show()
-    fig.savefig('runtime.png', bbox_inches='tight')
+    fig.savefig('runtime_semilog.png', bbox_inches='tight')
+    plt.bar(range(len(stats)), stats)
+    plt.show()
+    fig.savefig('runtime_bar.png', bbox_inches='tight')
 
 # small example
 n = 1000
