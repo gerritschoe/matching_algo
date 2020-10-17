@@ -1,3 +1,6 @@
 # matching_algo
 Prototyping matching algorithms that scale well,
-i.e. to match profiles based on common attributes. 
+i.e. to match users based on common attributes. 
+
+
+![Alt text](/src/runtime_bar.png?raw=true "Code scales well to up to 1 million users")
